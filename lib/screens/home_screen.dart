@@ -51,15 +51,6 @@ class _StatsBar extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
       child: Column(
         children: [
-          Row(
-            children: [
-              _StatChip(label: 'Tasks', value: provider.totalCount, color: Colors.white),
-              const SizedBox(width: 12),
-              _StatChip(label: 'Passed', value: provider.completedCount, color: Colors.greenAccent),
-              const SizedBox(width: 12),
-              _StatChip(label: 'Due', value: provider.pendingCount, color: Colors.orangeAccent),
-            ],
-          ),
           const SizedBox(height: 10),
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
@@ -78,39 +69,6 @@ class _StatsBar extends StatelessWidget {
             style: const TextStyle(color: Colors.white70, fontSize: 11),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _StatChip extends StatelessWidget {
-  final String label;
-  final int value;
-  final Color color;
-
-  const _StatChip({required this.label, required this.value, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha:0.15),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: RichText(
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: '$value ',
-              style: TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 16),
-            ),
-            TextSpan(
-              text: label,
-              style: const TextStyle(color: Colors.white70, fontSize: 13),
-            ),
-          ],
-        ),
       ),
     );
   }
